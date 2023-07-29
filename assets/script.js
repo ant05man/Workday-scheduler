@@ -1,6 +1,8 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+var todayDate = moment().format('dddd, MMM do YYYY');
+$("#currentDay").html(todayDate);
 var timeDisplayEl = $('#currentDay');
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
@@ -27,3 +29,31 @@ var timeDisplayEl = $('#currentDay');
       }
 
       displayTime();
+
+      //Get current number of hours
+      function timeTracker() {
+        // moment() - helps manipulate, displaying date/time
+        // hour() - communicates w/ CPU clock returns current hour as value from 0-23
+        var currentTime = moment().hour();
+      }
+// This will loop over time-blocks 
+$(".time-block").each(function() {
+  var blockTime = parseInt($(this).attr("id").split("hour")[9]);
+
+  //Checks the Time and add the appropriate classes and applies background colors
+  if (blockTIme < currentTIme) {
+    $ (this).removeClass("future");
+    $ (this).removeClass("present");
+    $ (this).addClass("past");
+  }
+  else if (blockTime === currentTime) {
+    $ (this).removeClass("future");
+    $ (this).addClass("present");
+    $ (this).removeClass("past");
+  }
+  else {
+    $ (this).addClass("future");
+    $ (this).removeClass("present");
+    $ (this).removeClass("past");
+  }
+});
