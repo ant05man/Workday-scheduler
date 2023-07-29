@@ -39,9 +39,9 @@
         desired layout and colors. The html below should be removed or updated
         in the finished product. Remember to delete this comment once the
         code is implemented.
-        -->
-
-      <!-- Example of a past time block. The "past" class adds a gray background color. -->
+        --> 
+      
+        <!-- Example of a past time block. The "past" class adds a gray background color. -->
       <div id="hour-9" class="row time-block past">
         <div class="col-2 col-md-1 hour text-center py-3">9AM</div>
         <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
@@ -62,13 +62,38 @@
       <!-- Example of a future time block. The "future" class adds a green background color. -->
       <div id="hour-11" class="row time-block future">
         <div class="col-2 col-md-1 hour text-center py-3">11AM</div>
-        <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+        <textarea class="col-8 col-md-10 description" rows="3"></textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
           <i class="fas fa-save" aria-hidden="true"></i>
         </button>
       </div>
-    </div>
+  
 
+    
+    <div id="hour-12" class="row time-block"> <!--creates the id called hour-12 and its name of class is time-block just without the past or present,future-->
+      <!--col 2 = this is saying that the space with the text '12PM' will be 2/12 of the size as default since the full 100% width will be 12 since there is max width of 12 columns in Bootstrap-->
+      <!--col-md-1 = this is saying once the window reaches 768px(md size) then the box containing '12 PM' will be 1/12 of the total width-->
+      <!--text-center = this will keep the text in the center of the box, even as it moves-->
+      <!--py-3 = p = padding, y = for the top and bottom, changing the height of the box, it can be from 1(smallest) - 5(largest)-->
+      <div class="col-2 col-md-1 hour text-center py-3">12PM</div> <!-- this creates a 'div' that stores '8 AM'-->
+      <!--'textarea' = the space where there is text being inputted-->
+      <!--col-8 = this will make the text space after the '8 AM' box 8/12 of the overall width of the entire box-->
+      <!--col-md-10 = the width of the column will become 10/12 width of the entire box once it reaches md size(768px) so everything else will get smaller as a result-->
+      <!--'description' is just the name of the class-->
+      <!--rows = "3" means that that "3" rows will be created into the textarea, therefore making it larger -->
+      <textarea class="col-8 col-md-10 description" rows="3"></textarea>
+
+      <!--button class name = saveBtn-->
+      <!--col-2 = the button will be 2/12 width of the entire column by default-->
+      <!-- every button for every hour from hour8 - final hour is stored inside going from top to bottom
+        col-2 = hour8, col-2 = hour9,etc.-->
+      <!--aria label = ?????????????????????????-->
+      <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <!-- i = the save button icon we can access it in css with .fa-save-->
+        <i class="fas fa-save" aria-hidden="true"></i>
+      </button>
+      </div>
+    </div> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
