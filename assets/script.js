@@ -1,50 +1,42 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
+// creating variable that contains moment() 
+// moment() displays the date and formatting it as the following
 var todayDate = moment().format('dddd, MMM Do YYYY');
+// selecting the id 'currentDay' and inserting 'todayDate' inside of that area of the page right underneath 'A simple calendar app text'
 $("#currentDay").html(todayDate);
 
 //whatever written inside the $(document).ready will run once the page DOM is ready for JS code
 $(document).ready(function() {
 
 
-    // TODO: Add a listener for click events on the save button. This code should
+    // Added a addListener event for the click of the buttons
     $(".saveBtn").on("click", function() {
 
+      //selecting all siblings of 'this' object that has the name 'description' and returns value of all matched elements
+      //(this) - referring to the object where the function is being run, in this case it is referring to 'saveBtn'
       var text = $(this).siblings(".description").val();
       
+      //selecting all ids of the parents that contains the 'saveBtn' elements and assigning that to this variable
       var time = $(this).parent().attr("id");
 
+      //setting item 'time' as text
       localStorage.setItem(time,text);
     })
-    // use the id in the containing time-block as a key to save the user input in
-    // local storage. HINT: What does `this` reference in the click listener
-    // function? How can DOM traversal be used to get the "hour-x" id of the
-    // time-block containing the button that was clicked? How might the id be
-    // useful when saving the description in local storage?
-    //
-    // TODO: Add code to apply the past, present, or future class to each time
-    // block by comparing the id to the current hour. HINTS: How can the id
-    // attribute of each time-block be used to conditionally add or remove the
-    // past, present, and future classes? How can Day.js be used to get the
-    // current hour in 24-hour time?
-    //
-    // TODO: Add code to get any user input that was saved in localStorage and set
-    // the values of the corresponding textarea elements. HINT: How can the id
-    // attribute of each time-block be used to do this?
-    //
-    // TODO: Add code to display the current date in the header of the page.
-
 
       //Get current number of hours
       function timeTracker() {
-        // moment() - helps manipulate, displaying date/time
+
+        // moment() - displays date/time
         // hour() - communicates w/ CPU clock returns current hour as value from 0-23
         var currentTime = moment().hours();
         console.log("hours is: ", currentTime);
+        
 // This will loop over time-blocks 
+//.each() - specifies function that runs for every matched element
+//.each() syntax = $("selector").each(function(index, element)
 $(".time-block").each(function() {
-    var blockTime = parseInt($(this).attr("id").split("hour")[1]);
+
+  //parseInt() - converts first argument to a string, parses it then returns an integer or NaN
+    var blockTime = parseInt($(this).attr("id").split("hour")[0]);
 
   //Checks the Time and add the appropriate classes and applies background colors
   if (blockTime < currentTime) {
@@ -55,7 +47,7 @@ $(".time-block").each(function() {
   else if (blockTime === currentTime) {
     $(this).removeClass("past");
     $(this).removeClass("future");
-    $(this).removeClass("past");
+    $(this).addClass("present");
   }
   else {
     $(this).removeClass("present");
@@ -68,7 +60,14 @@ $(".time-block").each(function() {
 }
 
 $("#hour9 .description").val(localStorage.getItem("hour9"));
+$("#hour10 .description").val(localStorage.getItem("hour10"));
+$("#hour11 .description").val(localStorage.getItem("hour11"));
+$("#hour12 .description").val(localStorage.getItem("hour12"));
+$("#hour13 .description").val(localStorage.getItem("hour13"));
 $("#hour14 .description").val(localStorage.getItem("hour14"));
+$("#hour15 .description").val(localStorage.getItem("hour15"));
+$("#hour16 .description").val(localStorage.getItem("hour16"));
+$("#hour17 .description").val(localStorage.getItem("hour17"));
 
 
 timeTracker();
