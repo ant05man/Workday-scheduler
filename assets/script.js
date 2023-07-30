@@ -29,16 +29,17 @@ $(document).ready(function() {
         // hour() - communicates w/ CPU clock returns current hour as value from 0-23
         var currentTime = moment().hours();
         console.log("hours is: ", currentTime);
-        
+
 // This will loop over time-blocks 
 //.each() - specifies function that runs for every matched element
 //.each() syntax = $("selector").each(function(index, element)
 $(".time-block").each(function() {
 
-  //parseInt() - converts first argument to a string, parses it then returns an integer or NaN
-    var blockTime = parseInt($(this).attr("id").split("hour")[0]);
+  // parseInt() - converts ids of "time-block" first argument to a string, parses it then returns an integer or NaN
+    var blockTime = parseInt($(this).attr("id").split("hour")[1]);
 
   //Checks the Time and add the appropriate classes and applies background colors
+  //(this) refers to "time-block" class
   if (blockTime < currentTime) {
     $(this).removeClass("future");
     $(this).removeClass("present");
@@ -58,7 +59,8 @@ $(".time-block").each(function() {
 })
 
 }
-
+// .description is the class name of the textarea
+// this will save the information that is being inputted into the textarea in #hour9-17 ids
 $("#hour9 .description").val(localStorage.getItem("hour9"));
 $("#hour10 .description").val(localStorage.getItem("hour10"));
 $("#hour11 .description").val(localStorage.getItem("hour11"));
