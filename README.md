@@ -3,7 +3,7 @@ https://ant05man.github.io/Workday-scheduler/
 
 ## Description
 
-The goal of this project is to create a daily planner that has a schedule. The current date is displayed at the top of the calendar. There a time blocks that start from 9AM and end at 5PM. Each time block is color-coded so the color changes with the current time of the day. Past, present, and future all have different colors that correspond to them. When you input information into the textboxes, that information will be stored inside local storage and when you refresh the page, the information will still remain as long you click the save button. Different date and time functions were learned as I completed this project.
+The goal of this project is to create a daily planner that has a schedule. The current date is displayed at the top of the calendar and there are time blocks that start from 9AM and end at 5PM. Each time block is color-coded so the background color changes with regards to the current time of the day. Past, present, and future all have different colors that correspond to them. When you input information into the textboxes, that information will be stored inside local storage and when you refresh the page, the information will still remain as long you click the save button. Different date and time functions were learned as I completed this project.
 
 ## Installation
 -  Open Git Bash
